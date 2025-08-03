@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service | Your Home Your Style</title>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="policy-container">
+    <div class="policy-content">
+      <h1 class="policy-title">Terms of Service</h1>
+      <p class="policy-update">Last Updated: <span id="current-date"></span></p>
+      
+      <section class="policy-section">
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing or using the Your Home Your Style website, you agree to be bound by these Terms of Service.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>2. Use of Services</h2>
+        <p>Our services are intended for personal, non-commercial use. You agree not to use the services for any unlawful purpose.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>3. Intellectual Property</h2>
+        <p>All content on this website, including text, graphics, logos, and images, is our property and protected by copyright laws.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>4. User Accounts</h2>
+        <p>When you create an account with us, you must provide accurate information. You are responsible for maintaining the confidentiality of your account.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>5. Purchases</h2>
+        <p>If you wish to purchase any product or service, you may be asked to supply certain information relevant to your purchase.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>6. Limitation of Liability</h2>
+        <p>In no event shall Your Home Your Style be liable for any special, indirect, or consequential damages arising out of or in connection with your use of our services.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>7. Changes to Terms</h2>
+        <p>We reserve the right to modify these terms at any time. Your continued use of the service constitutes acceptance of the modified terms.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>8. Governing Law</h2>
+        <p>These Terms shall be governed by the laws of India without regard to its conflict of law provisions.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>9. Contact Us</h2>
+        <p>If you have any questions about these Terms, please contact us at <a href="mailto:legal@yourhomeyourstyle.com">ujjainaditi933@gmail.com</a>.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          &copy; <span id="current-year"></span> Your Home Your Style. All rights reserved.
+          <span class="footer-separator">|</span>
+          <a href="privacy-policy.html" class="footer-bottom-link">Privacy Policy</a>
+          <span class="footer-separator">|</span>
+          <a href="terms.html" class="footer-bottom-link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="header.js"></script>
+  <script>
+    // Set current date and year
+    document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

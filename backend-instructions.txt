@@ -1,0 +1,133 @@
+TASK: Implement secure file download system for purchased digital products
+
+I need you to implement a secure download system where users can download files they've purchased. This should be completely free - no paid services like AWS S3, just local file serving with security.
+
+REQUIREMENTS:
+- Users can only download files they've purchased
+- Temporary download links that expire
+- No direct file access - everything goes through authenticated endpoints
+- Files stored locally on server
+
+FRONTEND API CALLS YOU NEED TO HANDLE:
+
+1. POST /api/orders/download - Generate download link
+   - Body: { itemId: "EB25G001" }
+   - Headers: Authorization: Bearer <token>
+   - Response: { success: true, downloadUrl: "http://localhost:8000/api/files/download/<token>" }
+
+FILE STRUCTURE NEEDED:
+backend/
+├── files/
+│   └── EB25G001-pre-design-guide.pdf  (your actual file)
+├── routes/
+│   └── orders.js
+└── middleware/
+    └── auth.js
+
+IMPLEMENTATION REQUIRED:
+
+1. Create the download endpoint in routes/orders.js:
+
+router.post('/download', authenticateToken, async (req, res) => {
+  try {
+    const { itemId } = req.body;
+    const userId = req.user.id;
+
+    const purchase = await Purchase.findOne({
+      userId: userId,
+      'items.itemId': itemId
+    });
+
+    if (!purchase) {
+      return res.status(403).json({
+        success: false,
+        message: 'You have not purchased this item'
+      });
+    }
+
+    const downloadToken = jwt.sign(
+      { userId, itemId, type: 'download' },
+      process.env.JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+
+    res.json({
+      success: true,
+      downloadUrl: `${process.env.BASE_URL}/api/files/download/${downloadToken}`
+    });
+
+  } catch (error) {
+    console.error('Download link generation error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to generate download link'
+    });
+  }
+});
+
+2. Create file serving endpoint:
+
+router.get('/download/:token', async (req, res) => {
+  try {
+    const { token } = req.params;
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    
+    if (decoded.type !== 'download') {
+      return res.status(403).json({ message: 'Invalid token' });
+    }
+
+    const fileMap = {
+      'EB25G001': 'EB25G001-pre-design-guide.pdf'
+    };
+
+    const fileName = fileMap[decoded.itemId];
+    if (!fileName) {
+      return res.status(404).json({ message: 'File not found' });
+    }
+
+    const filePath = path.join(__dirname, '../files', fileName);
+    
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).json({ message: 'File not found on server' });
+    }
+
+    res.setHeader('Content-Disposition', `attachment; filename="${fileName}"`);
+    res.setHeader('Content-Type', 'application/pdf');
+    
+    const fileStream = fs.createReadStream(filePath);
+    fileStream.pipe(res);
+
+  } catch (error) {
+    if (error.name === 'TokenExpiredError') {
+      return res.status(401).json({ message: 'Download link has expired' });
+    }
+    res.status(500).json({ message: 'Download failed' });
+  }
+});
+
+3. Add required imports at top of orders.js:
+
+const jwt = require('jsonwebtoken');
+const fs = require('fs');
+const path = require('path');
+
+4. Create the files directory structure:
+Create a files folder in your backend root and put your PDF file there named: EB25G001-pre-design-guide.pdf
+
+5. Environment variables needed in .env:
+BASE_URL=http://localhost:8000
+JWT_SECRET=your-existing-jwt-secret
+
+6. Make sure these routes are registered in your main app file:
+app.use('/api/orders', ordersRoutes);
+app.use('/api/files', ordersRoutes);
+
+SECURITY FEATURES INCLUDED:
+- JWT token validation for download links
+- Purchase verification before download
+- Temporary URLs (1 hour expiry)
+- No direct file access
+- User-specific access control
+
+Please implement this exactly as specified. The frontend is already configured to work with these endpoints.

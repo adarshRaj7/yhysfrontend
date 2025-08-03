@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Your Home Your Style</title>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Contact Page Specific Styles */
+    .contact-hero {
+      background: linear-gradient(rgba(77, 47, 43, 0.7), rgba(77, 47, 43, 0.7)), 
+                  url('assets/contact-bg.jpg') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #f8f1e9;
+      margin-bottom: 60px;
+    }
+
+    .contact-container {
+      max-width: 800px; /* Reduced from 1200px since we only have one column now */
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .contact-info {
+      background: #f8f1e9;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(43, 29, 27, 0.1);
+      margin-bottom: 60px;
+    }
+
+    .contact-title {
+      font-size: 2.5rem;
+      color: #4d2f2b;
+      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+      position: relative;
+      text-align: center;
+    }
+
+    .contact-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #ef4f4f;
+    }
+
+    .contact-text {
+      color: #5e4b3a;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .contact-details {
+      margin-bottom: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .contact-icon {
+      margin-right: 15px;
+      color: #4d2f2b;
+      font-size: 1.2rem;
+      min-width: 24px;
+    }
+
+    .contact-label {
+      font-weight: 600;
+      color: #4d2f2b;
+      margin-bottom: 5px;
+    }
+
+    .contact-value {
+      color: #5e4b3a;
+    }
+
+    .contact-value a {
+      color: #4d2f2b;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-value a:hover {
+      color: #ef4f4f;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: white;
+      border-radius: 50%;
+      color: #4d2f2b;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: #4d2f2b;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .social-logo {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .contact-hero {
+        height: 350px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-hero {
+        height: 300px;
+      }
+      
+      .contact-title {
+        font-size: 2rem;
+      }
+      
+      .contact-info {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-hero {
+        height: 250px;
+      }
+      
+      .contact-title {
+        font-size: 1.8rem;
+      }
+      
+      .contact-info {
+        padding: 25px 20px;
+      }
+      
+      .social-links {
+        gap: 15px;
+      }
+      
+      .social-link {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .social-logo {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contact-main">
+    <section class="contact-hero">
+      <div class="hero-content">
+        <h1 class="hero-title slide-up">Let's Create Together</h1>
+        <p class="hero-subtitle slide-up" style="animation-delay: 0.2s;">Your vision, our expertise - beautifully combined</p>
+      </div>
+    </section>
+
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2 class="contact-title">Get In Touch</h2>
+        <p class="contact-text">We'd love to hear about your project and discuss how we can bring your design vision to life. Reach out using any of the methods below.</p>
+        
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Gandhi Nagar<br>Gujarat, India</div>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-label">Call Us</div>
+              <div class="contact-value"><a href="tel:+917529000925">+91 7529000925</a></div>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-label">Email Us</div>
+              <div class="contact-value"><a href="mailto:ujjainaditi933@gmail.com">ujjainaditi933@gmail.com</a></div>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">🕒</div>
+            <div>
+              <div class="contact-label">Working Hours</div>
+              <div class="contact-value">Monday - Friday: 9am - 8pm<br>Saturday: 10am - 9pm</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://www.instagram.com/aditi._.e" class="social-link">
+            <img src="assets/instagram.webp" alt="Instagram" class="social-logo">
+          </a>
+          <a href="https://www.linkedin.com/in/aditi-ujjain-2720b11b2" class="social-link">
+            <img src="assets/linkedin.png" alt="LinkedIn" class="social-logo">
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-cta-group">
+        <p class="footer-text">Get periodic insights on home styling</p>
+        <div class="arrow-pointer">
+          <span>↓</span>
+        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSekjWHH7oIGwqyNQdYqNpMfwpp95YeBqTRgLhvzCWegFRg3IQ/viewform" class="footer-cta">SIGN UP FOR FREE</a>
+      </div>
+      
+      <div class="social-section">
+        <p class="footer-connect">LET'S CONNECT!</p>
+        <div class="social-buttons">
+          <a href="https://www.linkedin.com/in/aditi-ujjain-2720b11b2" class="social-btn">
+            <img src="assets/linkedin.png" alt="LinkedIn">
+          </a>
+          <a href="https://www.instagram.com/aditi._.e" class="social-btn">
+            <img src="assets/instagram.webp" alt="Instagram">
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        &copy; <span id="current-year"></span> Your Home Your Style. All rights reserved.
+        <span class="footer-separator">|</span>
+        <a href="privacy-policy.html" class="footer-bottom-link">Privacy Policy</a>
+        <span class="footer-separator">|</span>
+        <a href="terms.html" class="footer-bottom-link">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="header.js"></script>
+  <script src="footer.js"></script>
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

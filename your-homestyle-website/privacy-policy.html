@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Your Home Your Style</title>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="policy-container">
+    <div class="policy-content">
+      <h1 class="policy-title">Privacy Policy</h1>
+      <p class="policy-update">Last Updated: <span id="current-date"></span></p>
+      
+      <section class="policy-section">
+        <h2>1. Introduction</h2>
+        <p>Your Home Your Style ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>2. Information We Collect</h2>
+        <p>We may collect personal information that you voluntarily provide to us when you:</p>
+        <ul>
+          <li>Register on our website</li>
+          <li>Subscribe to our newsletter</li>
+          <li>Contact us through forms</li>
+          <li>Make a purchase</li>
+        </ul>
+        <p>This information may include your name, email address, phone number, and other contact details.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>3. How We Use Your Information</h2>
+        <p>We use the information we collect to:</p>
+        <ul>
+          <li>Provide and maintain our services</li>
+          <li>Notify you about changes to our services</li>
+          <li>Allow you to participate in interactive features</li>
+          <li>Provide customer support</li>
+          <li>Gather analysis to improve our website</li>
+        </ul>
+      </section>
+
+      <section class="policy-section">
+        <h2>4. Cookies and Tracking</h2>
+        <p>We use cookies and similar tracking technologies to track activity on our website and hold certain information to improve your experience.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>5. Third-Party Services</h2>
+        <p>We may employ third-party companies to facilitate our services, provide services on our behalf, or assist us in analyzing how our service is used.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>6. Data Security</h2>
+        <p>We implement appropriate technical and organizational measures to protect your personal information.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>7. Changes to This Policy</h2>
+        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>8. Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:privacy@yourhomeyourstyle.com">privacy@yourhomeyourstyle.com</a>.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          &copy; <span id="current-year"></span> Your Home Your Style. All rights reserved.
+          <span class="footer-separator">|</span>
+          <a href="privacy-policy.html" class="footer-bottom-link">Privacy Policy</a>
+          <span class="footer-separator">|</span>
+          <a href="terms.html" class="footer-bottom-link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="header.js"></script>
+  <script>
+    // Set current date and year
+    document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

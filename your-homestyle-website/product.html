@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Home, Your Style Guide</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="header.css" />
+  <link rel="stylesheet" href="footer.css" />
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 20px;
+      gap: 40px;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .product-gallery {
+      flex: 1;
+      min-width: 320px;
+    }
+
+    .product-gallery .slide {
+      display: none;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .product-gallery .slide.active {
+      display: block;
+    }
+
+    .gallery-nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      gap: 10px;
+    }
+
+    .gallery-nav img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border: 2px solid transparent;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: border 0.3s ease;
+    }
+
+    .gallery-nav img:hover, .gallery-nav img.active {
+      border-color: #ef4f4f;
+    }
+
+    .product-info {
+      flex: 1;
+      min-width: 300px;
+      background-color: #fef9f5;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .product-info h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #4d2f2b;
+    }
+
+    .product-info .price {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #ef4f4f;
+    }
+
+    .product-info ul {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+
+    .product-info li {
+      margin-bottom: 8px;
+    }
+
+    .product-info .btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    #download-fallback {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/product.html" class="active">Guide</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Product Section -->
+  <section class="product-container">
+
+    <!-- Gallery -->
+    <div class="product-gallery">
+      <div class="slide active" id="slide1">
+        <img src="assets/slide1.jpg" alt="Slide 1" style="width:100%">
+      </div>
+      <div class="slide" id="slide2">
+        <img src="assets/slide2.jpg" alt="Slide 2" style="width:100%">
+      </div>
+      <div class="slide" id="slide3">
+        <video src="assets/intro.mp4" controls style="width:100%"></video>
+      </div>
+
+      <div class="gallery-nav">
+        <img src="assets/slide1.jpg" alt="Thumb 1" onclick="showSlide(1)" class="active">
+        <img src="assets/slide2.jpg" alt="Thumb 2" onclick="showSlide(2)">
+        <img src="assets/video-thumb.jpg" alt="Video Thumb" onclick="showSlide(3)">
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="product-info">
+      <h1>Your Home, Your Style Guide</h1>
+      <p class="price">₹499</p>
+      <ul>
+        <li>Interactive workbook for style discovery</li>
+        <li>Tips for every room, even small spaces</li>
+        <li>Downloadable, printable, and mobile-friendly</li>
+      </ul>
+      <button id="rzp-button1" class="btn btn-primary">Buy & Download Instantly</button>
+
+      <!-- Fallback -->
+      <div id="download-fallback">
+        <p style="color:#2b1d1b;">If your download didn't start:</p>
+        <a href="/downloads/your-home-your-style.pdf" class="btn" download>Manual Download</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-cta-group">
+        <div class="footer-text">Love your space. Live your style.</div>
+        <div class="arrow-pointer"><span>↓</span></div>
+        <a href="#buy" class="footer-cta">Get the Guide</a>
+      </div>
+      <div class="social-section">
+        <div class="footer-connect">Follow Along</div>
+        <div class="social-buttons">
+          <a href="#" class="social-btn"><img src="assets/instagram.svg" alt="Instagram"></a>
+          <a href="#" class="social-btn"><img src="assets/facebook.svg" alt="Facebook"></a>
+          <a href="#" class="social-btn"><img src="assets/pinterest.svg" alt="Pinterest"></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          © 2025 Aditya Ujjain
+          <span class="footer-separator">|</span>
+          <a href="/privacy.html" class="footer-bottom-link">Privacy Policy</a>
+          <span class="footer-separator">|</span>
+          <a href="/terms.html" class="footer-bottom-link">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Razorpay & Gallery Script -->
+  <script>
+    const options = {
+      key: "YOUR_RAZORPAY_KEY_ID", // Replace with your Razorpay Key ID
+      amount: 49900,
+      currency: "INR",
+      name: "Your Home, Your Style Guide",
+      description: "Digital guide download",
+      image: "assets/guide-cover.png",
+      handler: function (response) {
+        const link = document.createElement("a");
+        link.href = "/downloads/your-home-your-style.pdf";
+        link.download = "Your-Home-Your-Style-Guide.pdf";
+        document.body.appendChild(link);
+        link.click();
+
+        document.getElementById("download-fallback").style.display = "block";
+      },
+      prefill: {
+        name: "",
+        email: "",
+        contact: "",
+      },
+      theme: {
+        color: "#ef4f4f"
+      }
+    };
+
+    const rzp1 = new Razorpay(options);
+    document.getElementById("rzp-button1").onclick = function (e) {
+      rzp1.open();
+      e.preventDefault();
+    };
+
+    function showSlide(num) {
+      document.querySelectorAll(".slide").forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === num - 1) slide.classList.add("active");
+      });
+
+      document.querySelectorAll(".gallery-nav img").forEach((img, i) => {
+        img.classList.remove("active");
+        if (i === num - 1) img.classList.add("active");
+      });
+    }
+  </script>
+
+</body>
+</html>

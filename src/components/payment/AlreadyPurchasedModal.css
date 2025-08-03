@@ -1,0 +1,203 @@
+/* AlreadyPurchasedModal.css - Enhanced specificity to override global styles */
+.already-purchased-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.already-purchased-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 480px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: modalSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.already-purchased-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.already-purchased-modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  font-family: "Playfair Display", serif;
+}
+
+.already-purchased-modal .modal-close-btn {
+  background: none !important;
+  border: none !important;
+  font-size: 1.5rem !important;
+  color: #6b7280 !important;
+  cursor: pointer !important;
+  padding: 4px !important;
+  border-radius: 4px !important;
+  transition: all 0.2s ease !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.already-purchased-modal .modal-close-btn:hover {
+  background-color: #f3f4f6 !important;
+  color: #374151 !important;
+  transform: scale(1.1) !important;
+}
+
+.already-purchased-modal-body {
+  padding: 24px;
+  text-align: center;
+}
+
+.already-purchased-icon {
+  color: #10b981;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.already-purchased-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.already-purchased-modal-body p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.already-purchased-modal-footer {
+  padding: 16px 24px 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.already-purchased-modal .already-purchased-modal-footer .btn {
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  border: none !important;
+  min-width: 120px;
+  text-decoration: none !important;
+  display: inline-block !important;
+  text-align: center !important;
+  box-shadow: none !important;
+  letter-spacing: normal !important;
+}
+
+.already-purchased-modal .already-purchased-modal-footer .btn-secondary {
+  background-color: #f3f4f6 !important;
+  color: #374151 !important;
+  border: 1px solid #d1d5db !important;
+}
+
+.already-purchased-modal .already-purchased-modal-footer .btn-secondary:hover {
+  background-color: #e5e7eb !important;
+  border-color: #9ca3af !important;
+  color: #1f2937 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.already-purchased-modal .already-purchased-modal-footer .btn-primary {
+  background-color: #4d2f2b !important;
+  color: #ffffff !important;
+  border: 1px solid #4d2f2b !important;
+}
+
+.already-purchased-modal .already-purchased-modal-footer .btn-primary:hover {
+  background-color: #3a221f !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(77, 47, 43, 0.3) !important;
+  border-color: #3a221f !important;
+}
+
+/* Additional button states for better interaction feedback */
+.already-purchased-modal .already-purchased-modal-footer .btn:focus {
+  outline: 2px solid #4d2f2b !important;
+  outline-offset: 2px !important;
+}
+
+.already-purchased-modal .already-purchased-modal-footer .btn:active {
+  transform: translateY(0px) scale(0.98) !important;
+  transition: all 0.1s ease !important;
+}
+
+.already-purchased-modal .already-purchased-modal-footer .btn-secondary:focus {
+  outline: 2px solid #6b7280 !important;
+  outline-offset: 2px !important;
+}
+
+.already-purchased-modal .already-purchased-modal-footer .btn-primary:active {
+  background-color: #2d1b18 !important;
+  transform: translateY(0px) scale(0.98) !important;
+}
+
+.already-purchased-modal .already-purchased-modal-footer .btn-secondary:active {
+  background-color: #d1d5db !important;
+  transform: translateY(0px) scale(0.98) !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .already-purchased-modal-backdrop {
+    padding: 16px;
+  }
+
+  .already-purchased-modal {
+    max-width: 100%;
+  }
+
+  .already-purchased-modal-header,
+  .already-purchased-modal-body,
+  .already-purchased-modal-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .already-purchased-modal-footer {
+    flex-direction: column;
+  }
+
+  .already-purchased-modal .already-purchased-modal-footer .btn {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+}

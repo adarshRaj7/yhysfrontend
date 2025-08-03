@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services | Your Home Your Style</title>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Enhanced Service Gallery ===== */
+    .services-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      max-width: 1300px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+
+    .service-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-image {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      aspect-ratio: 1/1;
+    }
+
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    /* Elegant Black Gradient Overlay */
+    .service-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 30px;
+      color: white;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .service-item:hover .service-overlay {
+      opacity: 1;
+    }
+
+    .service-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Service Content Styling */
+    .service-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      font-family: 'Playfair Display', serif;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .service-content h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: white;
+    }
+
+    .service-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .service-content ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 20px;
+    }
+
+    .service-content li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 10px;
+      color: white;
+      transition: all 0.3s ease;
+      transform: translateX(-10px);
+      opacity: 0.8;
+    }
+
+    .service-item:hover .service-content li {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .service-content li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Staggered Animations */
+    .service-content li:nth-child(1) { transition-delay: 0.1s; }
+    .service-content li:nth-child(2) { transition-delay: 0.2s; }
+    .service-content li:nth-child(3) { transition-delay: 0.3s; }
+
+    /* Service Badges */
+    .service-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #4d2f2b;
+      color: white;
+      padding: 6px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Duration Indicator */
+    .service-duration {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+      color: white;
+      text-decoration: none;
+    }
+
+    .service-duration:hover {
+      background: rgba(255,255,255,0.3);
+      transform: scale(1.05);
+    }
+
+    /* ===== Enhanced Filter System ===== */
+    .services-filter {
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .filter-options {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 10px 24px;
+      border: 2px solid #4d2f2b;
+      background: transparent;
+      color: #4d2f2b;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .filter-btn:hover {
+      background: rgba(77, 47, 43, 0.1);
+    }
+
+    .filter-btn.active {
+      background: #4d2f2b;
+      color: white;
+      box-shadow: 0 4px 12px rgba(77, 47, 43, 0.2);
+    }
+
+    /* ===== Enhanced CTA Section ===== */
+    .services-cta {
+      background: #f8f1e9;
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .services-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('assets/texture.png') center/cover;
+      opacity: 0.03;
+    }
+
+    .services-cta h2 {
+      font-size: 2.2rem;
+      color: #4d2f2b;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .services-cta p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #5e4b3a;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== Responsive Adjustments ===== */
+    @media (max-width: 768px) {
+      .services-gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .services-cta h2 {
+        font-size: 1.8rem;
+      }
+      
+      .filter-options {
+        gap: 8px;
+      }
+      
+      .filter-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="https://www.behance.net/gallery/219386277/COMPILED-PROJECTS_PORTFOLIO">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="services-main">
+    <section class="services-hero">
+      <div class="hero-content">
+        <h1 class="hero-title slide-up">Our Design Services</h1>
+        <p class="hero-subtitle slide-up" style="animation-delay: 0.2s;">Crafting spaces that tell your unique story</p>
+      </div>
+    </section>
+
+    <section class="services-filter">
+      <div class="filter-options">
+        <button class="filter-btn active" data-filter="all">All Services</button>
+        <button class="filter-btn" data-filter="residential">Residential</button>
+        <button class="filter-btn" data-filter="commercial">Commercial</button>
+        <button class="filter-btn" data-filter="consultation">Consultation</button>
+        <button class="filter-btn" data-filter="guides">Guides</button>
+      </div>
+    </section>
+
+    <section class="services-gallery">
+      <!-- Residential Interior Design -->
+      <div class="service-item" data-category="residential">
+        <div class="service-image">
+          <img src="services image/interior design.jpg" alt="Residential Interior Design">
+          <span class="service-badge">Most Popular</span>
+          <div class="service-overlay">
+            <div class="service-content">
+              <h3>Residential Interior Design</h3>
+              <p>Complete home transformation including space planning, material selection, and custom furniture design</p>
+              <ul>
+                <li>Space planning & layout optimisation</li>
+                <li>Material & finish selection</li>
+                <li>Custom furniture design</li>
+              </ul>
+              <span class="service-duration">4-6 week project</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Commercial Spaces -->
+      <div class="service-item" data-category="commercial">
+        <div class="service-image">
+          <img src="services image/commerical architecture.avif" alt="Commercial Spaces">
+          <div class="service-overlay">
+            <div class="service-content">
+              <h3>Commercial Spaces</h3>
+              <p>Brand-forward environments that command attention and inspire productivity</p>
+              <ul>
+                <li>Office design</li>
+                <li>Retail spaces</li>
+                <li>Brand integration</li>
+              </ul>
+              <span class="service-duration">Custom timeline</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full-Service Interior Design -->
+      <div class="service-item" data-category="commercial">
+        <div class="service-image">
+          <img src="services image/interior design.jpg" alt="Full-Service Interior Design">
+          <div class="service-overlay">
+            <div class="service-content">
+              <h3>Full-Service Interior Design</h3>
+              <p>Immersive environments that create unforgettable guest experiences</p>
+              <ul>
+                <li>Hotel interiors</li>
+                <li>Restaurant design</li>
+                <li>Resort spaces</li>
+              </ul>
+              <span class="service-duration">6-8 week project</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Home Styling & Makeovers -->
+      <div class="service-item" data-category="residential">
+        <div class="service-image">
+          <img src="services image/home styling & makeover.jpg" alt="Home Styling & Makeovers">
+          <span class="service-badge">Quick Turnaround</span>
+          <div class="service-overlay">
+            <div class="service-content">
+              <h3>Home Styling & Makeovers</h3>
+              <p>From idea to concept, we design homes that blend functionality with aesthetic appeal</p>
+              <ul>
+                <li>Concept development</li>
+                <li>3D visualization</li>
+                <li>Construction drawings</li>
+              </ul>
+              <span class="service-duration">2-3 week project</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Virtual Consultation -->
+      <div class="service-item" data-category="consultation">
+        <div class="service-image">
+          <img src="services image/virtual or onsight consultance.jpg" alt="Virtual Consultation">
+          <span class="service-badge">Quick Service</span>
+          <div class="service-overlay">
+            <div class="service-content">
+              <h3>Virtual Consultation</h3>
+              <p>Get professional design advice from the comfort of your home</p>
+              <ul>
+                <li>60-minute video session</li>
+                <li>Personalized recommendations</li>
+                <li>Follow-up notes</li>
+              </ul>
+              <span class="service-duration">1-2 day turnaround</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design Audits -->
+      <div class="service-item" data-category="consultation">
+        <div class="service-image">
+          <img src="services image/Design Audits.jpg" alt="Design Audits">
+          <div class="service-overlay">
+            <div class="service-content">
+              <h3>Design Audits</h3>
+              <p>Already have a space? Get a professional assessment of your current interiors</p>
+              <ul>
+                <li>Detailed space analysis</li>
+                <li>Style diagnosis</li>
+                <li>Quick fix cheat sheet</li>
+              </ul>
+              <span class="service-duration">3-5 day turnaround</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-Guides & Style Kits -->
+      <div class="service-item" data-category="guides">
+        <div class="service-image">
+          <img src="services image/eguides and your.jpg" alt="E-Guides & Style Kits">
+          <div class="service-overlay">
+            <div class="service-content">
+              <h3>E-Guides & Style Kits</h3>
+              <p>Empower your design journey with our curated, DIY-friendly resources</p>
+              <ul>
+                <li>Know your style</li>
+                <li>Smart decor investments</li>
+                <li>Complete home playbook</li>
+              </ul>
+              <a href="#" class="service-duration" style="color: inherit; text-decoration: none;">Instant download</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-cta">
+      <h2>Ready to Begin Your Design Journey?</h2>
+      <p>Schedule a complimentary discovery call to discuss your vision and how we can bring it to life.</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn btn-primary">Have a chat with us...</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-cta-group">
+        <p class="footer-text">Get periodic insights on home styling</p>
+        <div class="arrow-pointer">
+          <span>↓</span>
+        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSekjWHH7oIGwqyNQdYqNpMfwpp95YeBqTRgLhvzCWegFRg3IQ/viewform" class="footer-cta">SIGN UP FOR FREE</a>
+      </div>
+      
+      <div class="social-section">
+        <p class="footer-connect">LET'S CONNECT!</p>
+        <div class="social-buttons">
+          <a href="https://www.linkedin.com/in/aditi-ujjain-2720b11b2" class="social-btn"><img src="assets/linkedin.png" alt="LinkedIn"></a>
+          <a href="https://www.instagram.com/aditi._.e" class="social-btn"><img src="assets/instagram.webp" alt="Instagram"></a>
+          <a href="https://in.pinterest.com/ujjainaditi933/" class="social-btn"><img src="assets/pinterest.png" alt="Pinterest"></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        &copy; <span id="current-year"></span> Your Home Your Style. All rights reserved.
+        <span class="footer-separator">|</span>
+        <a href="privacy-policy.html" class="footer-bottom-link">Privacy Policy</a>
+        <span class="footer-separator">|</span>
+        <a href="terms.html" class="footer-bottom-link">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="header.js"></script>
+  <script src="footer.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set current year in footer
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+
+      // Initialize all services as visible
+      const serviceItems = document.querySelectorAll('.service-item');
+      
+      // Filter functionality
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+          });
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Get filter value
+          const filterValue = this.getAttribute('data-filter');
+          
+          // Filter services
+          serviceItems.forEach(item => {
+            const category = item.getAttribute('data-category');
+            
+            if (filterValue === 'all' || category === filterValue) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Initialize with all services showing
+      filterButtons[0].click(); // Trigger click on "All Services" button
+    });
+  </script>
+</body>
+</html>

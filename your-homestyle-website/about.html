@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Aditi Ujjain | Architect & Interior Designer</title>
+  <link rel="stylesheet" href="header.css" />
+  <link rel="stylesheet" href="about.css" />
+  <link rel="stylesheet" href="footer.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="https://www.behance.net/gallery/219386277/COMPILED-PROJECTS_PORTFOLIO">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="about-container">
+    <div class="about-left fade-in">
+      <div class="image-wrapper">
+        <img src="assets/aditi.png" alt="Aditi Ujjain" class="about-image slide-left">
+      </div>
+    </div>
+    <div class="about-right slide-up">
+      <h1 class="about-title">About Me</h1>
+      <p class="about-hi">Hello, I'm Aditi Ujjain</p>
+      <div class="about-description">
+        <p>I'm an architect and interior designer passionate about creating spaces that are both functional and aesthetically inspiring.</p>
+        <p>My design philosophy blends smart space solutions with culturally inspired modern aesthetics, resulting in environments that tell a story while serving their purpose beautifully.</p>
+        <p>With a keen eye for detail and a commitment to excellence, I approach each project as a unique opportunity to transform visions into tangible, livable art.</p>
+      </div>
+      
+      <div class="about-cta">
+        <p class="about-check">Explore my work on these platforms:</p>
+        <div class="about-links">
+          <a href="https://www.behance.net/aditiujjain2" target="_blank" class="social-link">
+            <img src="assets/behance.webp" alt="Behance" class="link-icon">
+            <span>Behance</span>
+          </a>
+          <a href="https://www.linkedin.com/in/aditi-ujjain-2720b11b2" target="_blank" class="social-link">
+            <img src="assets/linkedin.png" alt="LinkedIn" class="link-icon">
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-cta-group">
+        <p class="footer-text">Get periodic insights on home styling</p>
+        <div class="arrow-pointer">
+          <span>↓</span>
+        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSekjWHH7oIGwqyNQdYqNpMfwpp95YeBqTRgLhvzCWegFRg3IQ/viewform" class="footer-cta">SIGN UP FOR FREE</a>
+        <div class="social-section">
+          <p class="footer-connect">LET'S CONNECT!</p>
+          <div class="social-buttons">
+            <a href="https://www.linkedin.com/in/aditi-ujjain-2720b11b2" class="social-btn"><img src="assets/linkedin.png" alt="LinkedIn"></a>
+            <a href="https://www.instagram.com/aditi._.e" class="social-btn"><img src="assets/instagram.webp" alt="Instagram"></a>
+            <a href="https://in.pinterest.com/ujjainaditi933/?invite_code=37592e7cf4d24bf48321fb911ffd2fc0&sender=654570264499272995" class="social-btn"><img src="assets/pinterest.png" alt="Pinterest"></a>
+          </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        &copy; <span id="current-year"></span> Your Home Your Style. All rights reserved.
+        <span class="footer-separator">|</span>
+        <a href="privacy-policy.html" class="footer-bottom-link">Privacy Policy</a>
+        <span class="footer-separator">|</span>
+        <a href="terms.html" class="footer-bottom-link">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="header.js"></script>
+  <script src="footer.js"></script>
+  <script>
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
